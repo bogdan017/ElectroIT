@@ -1,0 +1,79 @@
+/* Setam stilul pentru bannerul de sus */
+#banner {
+    width: 70%;
+    margin: 0 auto;
+    border: 4px inset black;
+    position: absolute;
+    display: flex;
+    }
+    
+/* Ascundem toate elementele media si linkurile pentru a fi afisate doar ca text */
+img, video, audio, iframe, .ifr-link, .iframe-container, .taburi-iframe, a,figure {
+    display: none;
+}
+
+a[href="#"] {
+    display: none !important;
+}
+
+
+/* Setam stilul pentru heading-ul de nivel 1 */
+h1 {
+    text-align: center;
+    margin: auto;
+}
+/* Setam gridul paginii de tip block */
+#grid-pagina {
+    display: block;
+}
+
+/* Afisam toate linkurile ca text normal */
+a {
+    display: inline !important;
+    color: black !important;
+    text-decoration: none !important;
+}
+
+ul.meniu{
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
+    display: block !important;
+}
+/*Adaugam page break dupa meniu*/
+nav{
+    page-break-after: always !important;
+}
+/* Adaugam un page break inainte de footer */
+footer{
+    page-break-before: always !important;
+}
+
+/* Setam stilul pentru watermark */
+.watermark {
+		display: block;
+		position: fixed;
+		bottom:0;
+        right:0;
+		color:rgba(0,0,0,0.4);	
+}
+.watermark::after {	
+		opacity:0.4;
+        border:3px solid black;
+        width: 4cm;
+        height: 1cm;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+		content:"Vlad Andrei-Bogdan";
+}
+
+/* Setam marginile pentru paginile din stanga si dreapta in print preview */
+@page:left{
+margin-left: 3cm;
+margin-right: 1cm;
+}
+@page:right {
+margin-left: 1cm;
+margin-right: 3cm;
+}

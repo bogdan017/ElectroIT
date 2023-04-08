@@ -1,0 +1,26 @@
+body {
+    --inaltime-meniu: 45px;
+    --latime-buton:100px;
+}
+
+#acasa { 
+    display: none;
+}
+
+#acasa-mediu { 
+    display: block;
+}
+
+ul.meniu li ul.arrow li:hover::after {
+    display: none;
+}
+
+ul.meniu li:hover {
+    overflow: visible;
+    background-color : #666666; 
+    transition: 0.4s ease-in-out;
+    box-shadow: 3px 3px 20px 2.5px rgb(250, 251, 249) inset;
+}
+
+  
+  

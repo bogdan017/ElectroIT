@@ -1,0 +1,19 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    --spatiere-pagina:30px;
+    --padding-sectiune:10px;
+}
+
+#grid-pagina{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:"z-welcome z-welcome"
+                        "z-oferte z-evenimente"
+                        "z-oferte z-anunturi"
+                        "z-utilizatori-statistici z-utilizatori-statistici"
+                        "z-utilizatori z-server-site"
+                        "z-index-intrebari z-index-intrebari";
+}
+

@@ -1,0 +1,315 @@
+html {
+    font-size: 18px;
+}
+
+img {
+    width:100%;
+    max-width:400px;
+}
+
+h1 {
+    font-size : 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size : 2rem;
+}
+
+main {
+    margin-top: 100px;
+}
+
+video{
+    width: 100%;
+}
+
+video::cue{
+    background-color: transparent;
+    color: white;
+    text-shadow: 2px 4px 4px  black;
+}
+
+
+/*definire variabile css pt culori si diverse butoane*/
+body{ /*schema cromatica se bazeaza pe culorile celor de la Apple, remarcandu-se prin lipsa de "culoare", preferate fiind nonculorile*/
+    --culoare-fundal:#EEEEEE;
+    --culoare-fundal-inchis:#979797;
+    --culoare-border-par:#12192F;
+    --culoare-border-impar:#000000;
+    --culoare-inchisa:#666666;
+
+    --culoare-hover: #6D8AC2;
+    --culoare-hover2: #425F8F;
+    --culoare-text: black;
+    --spatiere-pagina: 30px;
+    --padding-sectiune: 15px;
+
+    --latime-buton-iframe: 100px;
+    --inaltime-buton-iframe: 50px;
+}
+
+body.dark{
+    --culoare-fundal:black;
+    --culoare-text:white;
+}
+
+body{
+    background-color: var(--culoare-fundal);
+    color:var(--culoare-text);
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+    min-width: 450px;
+    margin: 0;
+}
+
+main a{
+    background-position: center;
+    background-size: 0;
+    background-repeat: no-repeat;
+}
+
+main a:visited{
+    color: var(--culoare-hover2);
+}
+
+main a[href^="http"]::before{
+    content: "⮳";
+    font-size: 1.5rem;
+}
+
+main a[href^="http"]:hover::before{
+    color: var(--culoare-border-impar);
+}
+
+main a:hover{
+    background-size: 100%;
+    color: var(--culoare-border-par);
+    background-image: radial-gradient(var(--culoare-hover) 40%, transparent 80%, transparent 100%);
+    transition: all 0.9s linear;
+}
+
+main a:active{
+    border: 1.5px solid var(--culoare-border-impar);
+}
+
+a:not(.iframe-container) {
+    display: inline;
+}
+
+
+/*definire grid pagina*/
+
+#grid-pagina {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "z-welcome z-welcome z-welcome z-welcome"
+                         "z-oferte z-oferte z-evenimente z-evenimente"
+                         "z-oferte z-oferte z-anunturi z-anunturi"
+                         "z-utilizatori z-utilizatori-statistici z-utilizatori-statistici z-server-site"
+                         "z-index-intrebari z-index-intrebari z-index-intrebari z-index-intrebari";
+    gap: 10px 10px;
+}
+
+#grid-pagina > * {
+    border: 3px solid var(--culoare-border-par);
+    padding:var(--padding-sectiune);
+}
+
+#welcome{
+    grid-area: z-welcome;
+}
+
+#oferte{
+    grid-area: z-oferte;
+}
+
+#evenimente{
+    grid-area: z-evenimente;
+}
+
+#anunturi{
+    grid-area: z-anunturi;
+} 
+
+#utilizatori{
+    grid-area: z-utilizatori;
+}
+
+#utilizatori-statistici{
+    grid-area: z-utilizatori-statistici;
+}
+
+#server-site{
+    grid-area: z-server-site;
+}
+ 
+#index-intrebari{
+    grid-area: z-index-intrebari;
+}
+
+
+/*stilizare tabel*/
+caption {
+    caption-side: bottom;
+    background-color: var(--culoare-fundal-inchis);
+    color: var(--culoare-text);
+    font-weight: bold;
+}
+
+td:empty{
+    display: none;
+}
+
+td:nth-child(even), th:nth-child(even) {
+    background-color: var(--culoare-inchisa);
+
+}
+
+td:nth-child(odd), th:nth-child(odd) {
+    background-color: var(--culoare-fundal-inchis);
+}
+
+td {
+    transition: 0.5s;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    min-width: fit-content;
+}
+
+.tabela-oferte{
+    width: 100%;
+    border-radius: 15px;
+    border: 3px solid;
+    /*overflow:scroll;*/
+    overflow: auto;
+}
+
+tr:hover td{
+    background-color: var(--culoare-hover);
+    box-shadow: 2px 2px 2px 2px var(--culoare-inchisa);
+
+}
+
+tr td:hover{
+    background-color: var(--culoare-hover2);
+    box-shadow: 2px 2px 2px 2px var(--culoare-fundal-inchis);
+
+}
+
+td, th, caption{
+    padding: 10px;
+}
+
+tr {
+    text-align: center;
+}
+
+tfoot {
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+}
+
+
+
+/*stilizare iframe*/
+iframe{
+    max-height: 750px;
+    max-width: 1200px;
+    border: 4px solid var(--culoare-hover);
+}
+
+.ifr-link {
+    width: var(--latime-buton-iframe);
+    height: var(--inaltime-buton-iframe);
+    background: var(--culoare-fundal);
+    text-align:center;
+    font-size: 0.7rem;
+    text-decoration: none;
+    color: var(--culoare-border-impar);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-right: 10px;
+    margin-top: 3px;
+    border: 2px solid var(--culoare-hover);
+    box-shadow: 1px 1px 2px 1px var(--culoare-hover);
+    transition: background-color 400ms linear;        
+}
+
+.ifr-link:hover{
+    background: var(--culoare-hover);
+    color:var(--culoare-fundal);
+}
+
+.iframe-container{
+    display: flex;
+    display: inline-block;
+}
+
+.taburi-iframe{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+
+}
+
+
+/*stilizare link-top*/
+#link-top {
+    position:fixed;
+    bottom:1em;
+    right:1em;
+    width:3rem;
+    height:3rem;
+    opacity:0.5;    
+    line-height:2.5rem;
+    text-align: center;
+    box-sizing:content-box;
+    box-shadow: 0 0 0.3rem var(--culoare-fundal-inchis);
+    background-color: var(--culoare-fundal);
+    transition: opacity 700ms;
+    /*forma de romb*/
+    border:2px solid var(--culoare-border-impar);
+    transform: rotate(45deg);
+}
+
+#link-top:hover{
+    opacity:1;
+    background-color: var(--culoare-fundal-inchis);
+}
+
+#triunghi{
+    border-radius: 75%;
+    display:inline-block;
+    border-bottom:2rem solid var(--culoare-inchisa);
+    border-left:1.1rem solid transparent;
+    border-right:1.1rem solid transparent;
+    vertical-align: top;
+    transform: rotate(-45deg) translateX(-0.35rem);
+}
+
+#link-top:hover #triunghi {
+    border-bottom-color: white;
+}
+
+.watermark {
+    display: none;
+}
+
+video {
+    width: 100%;
+    min-width: 450px;
+    max-width: 1500px;
+}
+
+video::cue{
+    background: linear-gradient(to right, var(--culoare-border-impar), var(--culoare-border-par));
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}

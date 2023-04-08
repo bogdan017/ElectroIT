@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>ElectroIT</title>
+        <meta name="keywords" content="telefon, tableta, laptop, televizor, ceas inteligent, smartwatch, smartphone, husa, incarcator, baterie externa, HDD, SSD">
+        <meta name="description" content="Pe site-ul ElectroIT poti gasi dispozitivele tale preferate la cele mai mici preturi!">
+
+        <%- include("../fragmente/head.ejs") %>
+    </head>
+    <body>
+        <%- include("../fragmente/header.ejs") %>
+    <main>
+        <div id="grid-pagina">
+            <section id="welcome">
+                <button class="btn btn-primary">ceva</button>
+                <h1>ElectroIT - Bine ati venit!</h1>
+                <figure>
+                    <picture>
+                        <source media="(max-width: 700px)" srcset="resurse/imagini/iph14Phone.png">
+                        <source media="(max-width: 1000px)" srcset="resurse/imagini/iph14Tablet.png">
+                        <img src = "resurse/imagini/iph14Lap.png" alt="Iphone 14" title="Smartphone Apple, Iphone 14">
+                    </picture>
+                    <figcaption>Iphone 14</figcaption>
+                </figure>
+                <p><a href="#oferte">Noile oferte</a></p>
+                <p><a href = "https://www.altex.ro">Altex</a></p>
+                <video controls="controls" poster="resurse/imagini/phone.png" preload="auto">
+                    <source src="resurse/videos/phone.mp4" type="video/mp4">
+                    <source src="resurse/videos/phone.mkv" type="video.mkv">
+                    <track default src="resurse/videos/romana.vtt" kind="captions" srclang="ro" label="romana" />
+                    <track src="resurse/videos/engleza.vtt" kind="captions" srclang="en" label="engleza" />
+                </video>
+            </section>
+            <div id="oferte">
+                <div class="tabela-oferte">
+                    <table>
+                        <caption>Cele mai noi oferte</caption>
+                        <thead>
+                            <tr>
+                                <th>Produse</th>
+                                <th>Denumire produs</th>
+                                <th>Pret vechi</th>
+                                <th>Pret nou</th>
+                                <th>Reducere suplimentara</th>
+                                <th>Perioada reducerii</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">Smartphone-uri</td>
+                                <td>Samsung Galaxy S21</td>
+                                <td>2000</td>
+                                <td>1800</td>
+                                <td>10%</td>
+                                <td>15-20 Martie</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Iphone 14</td>
+                                <td>4300</td>
+                                <td>3655</td>
+                                <td>15%</td>
+                                <td>14-21 Martie</td>
+                            </tr>
+                            <tr>   
+                                <td></td>       
+                                <td>Motorola Moto G32</td>
+                                <td>800</td>
+                                <td>640</td>
+                                <td>20%</td>
+                                <td>23-28 Aprilie</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Laptop-uri</td>
+                                <td>Mackbook Pro 14</td>
+                                <td>9300</td>
+                                <td>8500</td>
+                                <td>15%</td>
+                                <td>13-16 Aprilie</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Lenovo Legion 5</td>
+                                <td>5200</td>
+                                <td>4800</td>
+                                <td>25%</td>
+                                <td>2-10 Mai</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">Aceste oferte sunt disponibile in limita stocului disponibil!</td>
+                            </tr>
+                        </tfoot>
+                    </table> 
+                </div>
+            </div>
+            <section id="evenimente">
+                <h1>Evenimente</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis officia dolorem architecto animi exercitationem et distinctio recusandae accusantium quisquam odit, totam esse cumque sint cupiditate inventore natus maxime tempore autem.</p>
+            </section>
+            <section id="anunturi">
+                <h1>Anunturi</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic ea quaerat a aliquam dolore. Sit libero voluptas impedit sed fugiat fuga dicta quae ducimus accusantium explicabo harum odit, expedita sint?</p>
+            </section>
+
+            <section id = "utilizatori">
+                <h1>Utilizatori</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio optio qui rerum aspernatur perspiciatis id exercitationem, repudiandae expedita ipsa blanditiis minus similique pariatur ducimus quisquam voluptas ipsam quasi aliquid cumque?</p>
+            </section>
+            <section id = "utilizatori-statistici">
+                <h1>Statistici utilizatori</h1>
+                <p>
+                    ip: <%- locals.ip %>
+                </p>
+            </section>
+            <section id = "server-site">
+                <h1>Informatii site</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut distinctio esse repellat explicabo dignissimos vel ratione architecto possimus. Nulla odio, odit facere illo ab quas explicabo fuga quod quaerat laboriosam?</p>
+            </section>
+            <div id="index-intrebari">
+                <h2>Întrebări frecvente</h2>
+                <details><summary>Livrare</summary>
+                    <p>Costul livrarii este de 25 de lei in toata tara.</p>
+                    <p>Coletele vor fi expediate in maxim 2 zile lucratoare de la data plasarii comenzii pe site!</p>
+                </details>
+                <details><summary>Retur produse</summary>
+                    <p>Puteti returna produsele in termen de 14 zile lucratoare de la data achizitionarii acestora.</p>
+                    <p>Returul este gratuit!</p>
+                </details>
+                <details><summary>Metode de plata</summary>
+                    <p>Modalitatile de plata acceptate pentru finalizarea unei comenzi sunt:</p>
+                    <ul>
+                        <li>numerar la livrare;</li>
+                        <li>plata cu cardul la livrare;</li>
+                        <li> online cu card bancar;</li>
+                        <li>ordin de plata.</li>
+                    </ul>
+                </details>
+                <section>
+                    <p><span class="fa-solid fa-mobile"></span>Puteti beneficia de o gama larga de produse accesand site-ul nostru!</p>
+                    <p><span class = "fa-solid fa-triangle-exclamation fa-fade"></span> <strong> Atentie! Daca nu ti-ai gasit inca produsul potrivit, urmareste unul dintre videoclipurile de mai jos!</strong></p>
+                </section>
+                <div class = "iframe-container">
+                    <div class="taburi-iframe">
+                        <a href="https://www.youtube.com/embed/gdeqbg8QFJM" target="ifr-video" class = "ifr-link">Ipad Mini</a>
+                        <a href="https://www.youtube.com/embed/UfawgQJICU8" target="ifr-video" class = "ifr-link">Apple Watch Series 8</a>
+                        <a href="https://www.youtube.com/embed/FT3ODSg1GFE" target="ifr-video" class = "ifr-link">Iphone 14 Pro</a>
+                    </div>
+                    <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/gdeqbg8QFJM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+     <section>
+        <div id="grid-galerie">
+            <% for (let imag of locals.imagini) { 
+                
+                d= new Date();
+
+                var v_luni=["ianuarie", "februarie", "martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
+                if (imag.luni && imag.luni.includes(v_luni[d.getMonth()])) {
+
+                %>
+               
+                    <figure>
+                        <picture>
+                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                            <img src="<%- imag.fisier %>" alt="imagine">
+                        </picture>
+                        <figcaption><%- imag.descriere %></figcaption>
+                    </figure>
+        
+        
+                <% }  %>
+            <% }  %>
+        </div>
+    </section> 
+    <div class="watermark">
+    </div>
+    <%- include("../fragmente/footer.ejs") %>
+    </body>
+</html>
