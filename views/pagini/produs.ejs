@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>ElectroIT</title>
+    <meta name="keywords" content="telefon, tableta, laptop, televizor, ceas inteligent, smartwatch, smartphone, husa, incarcator, baterie externa, HDD, SSD">
+    <meta name="description" content="Pe site-ul ElectroIT poți găsi dispozitivele tale preferate la cele mai mici prețuri!">
+    <%- include("../fragmente/head.ejs") %>
+    <link rel="stylesheet" href="/resurse/css/produs.css" type="text/css"/>
+</head>
+<body>
+<%- include("../fragmente/header.ejs") %>
+<main>
+    <section>
+        <h2>Pagină produs</h2>
+        <article id="art-produs">
+            <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+            <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
+            <p>Descriere: <span class="descriere"><%- locals.prod.descriere %></span></p>
+            <figure class="imag-produs">
+                <img src="/resurse/imagini/produse/<%- locals.prod.imagine %>"
+                    alt="[imagine <%- locals.prod.nume %>]" />
+            </figure>
+            <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+            <p>Accesorii: <span class="ingrediente"><%- locals.prod.accesorii %></span></p>
+            <p>Card SD/HDD/SSD: <span class="pt_diabetici"><%- locals.prod.slot_card_ssd_hdd %></span></p>
+            <p>Data adaugare: 
+                <span class="data_adaugare">
+                    <time datetime="<%- locals.prod.data_adaugare %>">
+                        <% const data = new Date(locals.prod.data_adaugare);
+                           const numeZiSaptamana = ["Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă"];
+                           const numeLuni = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+                           const ziSaptamana = numeZiSaptamana[data.getDay()];
+                           const zi = data.getDate();
+                           const numeLuna = numeLuni[data.getMonth()];
+                           const an = data.getFullYear();
+                        %>
+                        <%= `${ziSaptamana}, ${zi}-${numeLuna}-${an}` %>
+                    </time>                    
+                </span>
+            </p>
+        </article>
+    </section>
+</main>
+<%- include("../fragmente/footer.ejs") %>
+</body>
+</html>

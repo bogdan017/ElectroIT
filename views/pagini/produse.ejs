@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>ElectroIT</title>
+        <meta name="keywords" content="telefon, tableta, laptop, televizor, ceas inteligent, smartwatch, smartphone, husa, incarcator, baterie externa, HDD, SSD">
+        <meta name="description" content="Pe site-ul ElectroIT poti gasi dispozitivele tale preferate la cele mai mici preturi!">
+
+
+        <%- include("../fragmente/head.ejs") %>
+        <link href="/resurse/css/produse.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="/resurse/js/produse.js"></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header.ejs") %>
+
+    <main>
+        <div class="filtrare-menu">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+            <!--input text-->
+                  <label for="inp-nume">Nume produs:
+                    <input type="text" id="inp-nume" class="form-control">
+                  </label>
+                </div>
+
+            <!--radio-->
+                <div class="form-group">
+                    <label for="inp-tip-produs">Tip produs:</label>
+                    <div>
+                      <label><input id = "toate" type="radio" name="gr_rad" value="toate" checked> Toate</label>
+                      <% for (var i = 0; i < obGlobal.optiuniMeniu.length; i++) { %>
+                        <label><input type="radio" name="gr_rad" value="<%- obGlobal.optiuniMeniu[i].unnest %>"> <%- obGlobal.optiuniMeniu[i].unnest %></label>
+                      <% } %>
+                    </div>
+                </div>
+
+            <!--input range-->
+                <div class="form-group">
+                  <label for="inp-baterie">Capacitate minima baterie:
+                  <div class="range-container">
+                    <span>308</span>
+                    <input type="range" id="inp-baterie" value="308" min="308" max="7700">
+                    <span>7700</span>
+                    <span id="infoRange">(308)</span>
+                  </label>
+                  </div>
+                </div>
+
+            <!--datalist-->
+                <div class="form-group">
+                  <label for="inp-garantie">Garantie:
+                    <input type="text" id="inp-garantie" list="garantie" class="form-control">
+                  <datalist id = "garantie">
+                    <% for (let opt of locals.optiuniGarantie) { %>
+                        <option value="<%- opt.garantie %>">
+                            <% } %>
+                  </datalist>
+                  </label>
+                </div>
+    
+            <!--checkbox-->
+                <div class="form-group">
+                    <label for="inp-slot">Slot card SD/SSD/HDD:
+                      <input type="checkbox" id="inp-slot" name="inp-slot" />
+                    </label>
+                  </div>
+              </div>
+
+            <!--textarea-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="inp-cuvinte-cheie">Cuvinte cheie în descriere:
+                    <textarea id="inp-cuvinte-cheie" name = "inp-cuvinte-cheie" class="form-control"></textarea>
+                  </label>
+                </div>
+
+            <!--select simplu-->
+                <div class="form-group">
+                  <label>Categorie produs:
+                    <select id="inp-categorie" class="form-control">
+                      <option id="sel-toate" selected value="toate">toate</option>
+                      <% for (let opt of locals.optiuni) { %>
+                        <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
+                      <% } %>
+                    </select>
+                  </label>
+                </div>
+
+            <!--select multiplu-->
+                <div class="form-group">
+                  <label for="inp-pret">Preț:
+                  <select multiple id="inp-pret" name="inp-pret" class="form-control">
+                    <option value="100-1000">100-1000</option>
+                    <option value="1000-3000">1000-3000</option>
+                    <option value="3000-7000">3000-7000</option>
+                  </select>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="button-group">
+            <div class="btn-group" role="group">
+              <button id="filtrare" class="btn btn-primary mr-2">
+                <i class="bi bi-filter"></i>
+                <span class="d-sm-none d-md-block">Filtreaza</span>
+              </button>
+              </div>
+            <div class="btn-group" role="group">
+              <button id="resetare" class="btn btn-primary mr-2">
+                <i class="bi bi-arrow-clockwise"></i>
+                <span class="d-sm-none d-md-block">Reseteaza</span>
+              </button>
+            </div>
+            <div class="btn-group" role="group">
+              <button id="sortCrescNume" class="btn btn-primary mr-2">
+                <i class="bi bi-sort-up"></i>
+                <span class="d-sm-none d-md-block">Sorteaza crescator dupa pret si nume</span>
+              </button>
+              </div>
+              <div class="btn-group" role="group">
+              <button id="sortDescrescNume" class="btn btn-primary mr-2">
+                <i class="bi bi-sort-down"></i>
+                <span class="d-sm-none d-md-block">Sorteaza descrescator dupa pret si nume</span>
+              </button>
+            </div>
+          </div>
+          
+        
+        <p id="p-suma">Apăsați Alt pentru suma preturilor produselor afișate. </p>
+        <!--<p id="info-suma">311</p>-->
+        <section id="produse">
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div class="info-prod">
+                            <p class="pret">Pret: <span class="val-pret"><%- prod.pret%></span></p>
+                            <p class="baterie">Capacitate baterie: <span class="val-baterie"><%- prod.capacitate_baterie%></span></p>
+                            <p class="garantie">Garantie: <span class="val-garantie"><%- prod.garantie%></span></p>
+                            <p class="tipProdus">Tip produs: <span class = "val-tipProdus"><%- prod.tip_produs%></span></p>
+                            <p class="slot">Slot card SD/SSD/HDD: <span class="val-slot"><%- prod.slot%></span></p>
+                            <p class="descriere">Descriere: <span class="val-descriere"><%- prod.descriere%></span></p>
+                        </div>
+                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer.ejs") %>
+    </body>
+</html>

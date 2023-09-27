@@ -5,20 +5,31 @@
 body {
     --inaltime-meniu: 55px;
     --latime-buton:150px;
-    --culoare-meniu:var(--culoare-fundal-inchis);
+    --culoare-meniu:var(--culoare-fundal);
+    --culoare-butoane:var(--culoare-fundal-inchis);
     --culoare-border-buton: black;
 }
 
 nav {
     --text-meniu:black;
     background-color: var(--culoare-meniu);
-    /*width: 100%;*/
+    width: 100%;
     width:calc(100vw - 18px);
     height: var(--inaltime-meniu);
     position: sticky;
     top:0;
     margin-left: calc((-1) * var(--spatiere-pagina));
+    z-index: 100;
 }
+
+@media (min-width: 700px)  {
+    nav {
+        display: flex;
+        align-items: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 
 ul.meniu, ul.meniu ul {
     padding: 0;
@@ -41,10 +52,9 @@ ul.meniu > li {
 ul.meniu li {
     width: var(--latime-buton);
     height: var(--inaltime-meniu);
-    background-color: var(--culoare-meniu);
+    background-color: var(--culoare-butoane);
     overflow:hidden;
     text-align: center;
-    border: 1px solid var(--culoare-border-buton);
     transition : 0.8s ease-in-out;
     box-sizing: border-box;
 }

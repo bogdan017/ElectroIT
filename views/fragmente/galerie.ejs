@@ -1,0 +1,30 @@
+<section id = "galerie-statica">
+    <h1>Galerie</h1>
+    <div id="grid-galerie">
+        <% for (let imag of locals.imagini) { 
+
+            d = new Date();
+            ora = d.getHours();
+
+            let tmp;
+            if (ora >= 5 && ora < 12) {
+                tmp = "dimineata";
+            } else if (ora >= 12 && ora < 20) {
+                tmp = "zi";
+            } else {
+                tmp = "seara";
+            }
+            if (imag.timp.includes(tmp) && imag.fisier && imag.nume && imag.descriere && imag.timp) {
+        %>
+                <figure>
+                    <picture>
+                        <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                        <img src="<%- imag.fisier %>" alt="<%- imag.nume %>">
+                    </picture>
+                    <figcaption><%- imag.descriere %></figcaption>
+                </figure>
+                <div class = "spatiu"></div>
+            <% } %>
+        <% } %>
+    </div>
+    </section> 

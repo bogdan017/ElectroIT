@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>ElectroIT</title>
+        <meta name="keywords" content="telefon, tableta, laptop, televizor, ceas inteligent, smartwatch, smartphone, husa, incarcator, baterie externa, HDD, SSD, inregistrare, utilizatori">
+        <meta name="description" content="ElectroIT - înregistrare utilizatori!">
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/inregistrare.js></script>
+    </head>
+    <body>
+    <%- include("../fragmente/header") %>
+
+    <main>
+    <div class="afisaj">
+        <h1>Inregistrare utilizator</h1>
+        <% if(!locals.raspuns) { %>    
+
+			<%-include("../fragmente/formular", {action: "/inregistrare"}) %>
+        <% } %>
+        
+	<% if(locals.raspuns) { %>
+	<%- locals.raspuns+"<br/>"%>
+	<% } %>
+	<% if(locals.err) { %>
+	<%- locals.err %>
+	<% } %>
+    </div>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

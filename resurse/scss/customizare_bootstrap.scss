@@ -1,5 +1,31 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with
 (
-    $primary: red,
-    $secondary: purple
+    //prima cerinta
+    $primary: #6D8AC2,
+    $secondary: #666666,
+    //cerinta 2
+    //cerinta 3
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 500px,
+        md: 700px,
+        lg: 900px,
+        xl: 1100px,
+        xxl: 1300px
+    ),
+    //cerinta 4
+    $border-radius: 1.2rem,
+    //cerinta 5
+    $font-size-base: 1.1rem,
+    //cerinta6
+    $font-family-base: Arial,
+    //cerinta 7
+    $line-height-base: 1.6,
+    $link-shade-percentage: 25%,
+    $input-range-thumb-width: 1.5em,
+    $border-width: 2px,
+    $range-thumb-height: 1rem,
+    $range-thumb-width: 1rem,
+    $range-thumb-color: aliceblue,
+    $range-track-color: bisque
 )

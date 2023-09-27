@@ -8,6 +8,8 @@ img {
 }
 
 h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-size : 2.5rem;
     text-align: center;
 }
@@ -32,12 +34,13 @@ video::cue{
 
 
 /*definire variabile css pt culori si diverse butoane*/
-body{ /*schema cromatica se bazeaza pe culorile celor de la Apple, remarcandu-se prin lipsa de "culoare", preferate fiind nonculorile*/
+body { /*schema cromatica se bazeaza pe culorile celor de la Apple, remarcandu-se prin lipsa de "culoare", preferate fiind nonculorile*/
     --culoare-fundal:#EEEEEE;
     --culoare-fundal-inchis:#979797;
     --culoare-border-par:#12192F;
     --culoare-border-impar:#000000;
     --culoare-inchisa:#666666;
+    --culoare-tema-inchisa: #292c35;
 
     --culoare-hover: #6D8AC2;
     --culoare-hover2: #425F8F;
@@ -49,8 +52,8 @@ body{ /*schema cromatica se bazeaza pe culorile celor de la Apple, remarcandu-se
     --inaltime-buton-iframe: 50px;
 }
 
-body.dark{
-    --culoare-fundal:black;
+body.dark{ /*de modificat*/
+    --culoare-fundal:var(--culoare-tema-inchisa);
     --culoare-text:white;
 }
 
@@ -130,6 +133,9 @@ a:not(.iframe-container) {
 
 #anunturi{
     grid-area: z-anunturi;
+    position: relative;
+    width: 100%;
+    padding: 1rem;
 } 
 
 #utilizatori{
@@ -307,9 +313,298 @@ video {
 }
 
 video::cue{
-    background: linear-gradient(to right, var(--culoare-border-impar), var(--culoare-border-par));
+    background: linear-gradient(to right, var(--culoare-fundal), var(--culoare-fundal-inchis));
     color: transparent;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
 }
+
+
+.hr {
+    display: flex;
+    border: none;
+  }
+  .hr::after, .hr::before {
+    content: "";
+    flex: 1;
+  }
+  
+.linie {
+    overflow: hidden;
+    align-items: center;
+    background: var(--culoare-hover);
+    color: black;
+    height: 0.5em;
+    line-height: 1em;
+  }
+.linie::after, .linie::before {
+    background: var(--culoare-fundal);
+    padding: 40px 10px;
+    height: 0;
+    transform: rotate(45deg);
+}
+
+  
+
+/*Duotone */
+.duotone-image {
+    position: relative;
+    width: 300px; 
+    height: 300px; 
+    background-image: url('../imagini/iphone12.jpg'); 
+    background-size: cover; 
+  }
+  
+  .duotone-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--culoare-hover); 
+    mix-blend-mode: multiply; /* modul de amestecare a culorilor */
+  }
+  
+  .duotone-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--culoare-hover2);
+    mix-blend-mode: multiply; 
+    opacity: 0; 
+    transition: opacity 3s ease, background-color 0.5s ease;
+  }
+  
+
+  .duotone-image:hover::before {
+    background-color: var(--culoare-fundal);
+    transition: background-color 0.5s ease;
+}
+  
+  .duotone-image:hover::after {
+    opacity: 1; 
+    background-color: var(--culoare-fundal-inchis); 
+    transition: opacity 0.5s ease;
+
+  }
+
+
+
+/*text reflectat*/
+
+#cont {
+    display: flex;
+    justify-content: center;
+    padding-top:10px;
+    padding-bottom: 30px;
+}
+
+#text-reflectat {
+	transition: color 0.3s ease-in-out;
+    transform: scaleX(-1) rotateX(30deg) rotateY(-45deg);
+
+}
+
+#text {
+	transition: color 0.3s ease-in-out;
+    transform: rotateX(-30deg) rotateY(45deg);
+
+}
+
+#text, #text-reflectat {
+	font-size: 3.5rem;
+	line-height: 2rem;
+}
+
+#cont:hover #text, #cont:hover #text-reflectat {
+    color: var(--culoare-hover);
+}
+
+
+
+
+/*scrierea textului pe coloane*/
+.col {
+    column-count: 2;
+    column-gap: 20px;
+    column-rule: 1px solid #000;
+}
+
+/*Schimbarea afișării implicite a textului selectat*/
+
+  ::selection {
+    color: var(--culoare-hover2);
+    background-color: var(--culoare-fundal-inchis);
+  }
+
+
+  /*text care se plimba*/
+  .moving-text-container {
+    max-width: 100%;
+    overflow-x: hidden; /* Ascunde scrollbarul orizontal */
+    overflow-y: hidden;
+  }
+
+  .moving-text {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%; 
+    animation: moving-text 8s linear infinite;
+  }
+
+  @keyframes moving-text {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Stiluri responsive */
+  @media (max-width: 768px) {
+    .moving-text {
+      white-space: normal;
+      overflow: auto;
+      width: auto;
+      animation: moving-text-vertical 8s linear infinite;
+    }
+
+    @keyframes moving-text-vertical {
+      0% {
+        transform: translateY(100%);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+
+#transpus thead, #transpus tbody, #transpus tr {
+	display: block; 
+	float: left; 
+}
+
+#transpus th, #transpus td { 
+	display: block; 
+	border:1px solid black;
+	padding:0.3em;
+}
+
+#transpus td+td, #transpus th+th { 
+	border-top:none;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;  
+  }
+  
+  .checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon, .fa-sun {
+    font-size: 18px; /* Adjust the font size as desired */
+  }
+  
+  #banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    animation: slide-up 3s linear;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    20% {
+      transform: translateY(calc(-100%+20px)); 
+      color: var(--culoare-fundal);
+    }
+    100% {
+      transform: translateY(0); 
+      color: #fff; 
+    }
+  }
+  
+  #banner.show {
+    animation: slide-up 3s linear;
+    bottom: 0;
+  }
+  #mesaj-cookies {
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  #ok_cookies {
+    margin-left: 10px;
+  }
+
+  footer ul {
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  footer li {
+    list-style-type: none;
+    display: inline;
+    padding: 0 10px;
+    text-align: center;
+  }
+

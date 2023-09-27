@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <title>ElectroIT</title>
+       <!-- <div class = "moving-text-container">
+            <div class = "moving-text">
+                <h1>ElectroIT</h1>
+            </div>
+        </div>
+    -->
         <meta name="keywords" content="telefon, tableta, laptop, televizor, ceas inteligent, smartwatch, smartphone, husa, incarcator, baterie externa, HDD, SSD">
         <meta name="description" content="Pe site-ul ElectroIT poti gasi dispozitivele tale preferate la cele mai mici preturi!">
 
         <%- include("../fragmente/head.ejs") %>
     </head>
-    <body>
+    <body class = "dark">
+    <!--<button id = "tema" class = "btn btn-primary">Schimba tema</button>-->
         <%- include("../fragmente/header.ejs") %>
     <main>
         <div id="grid-pagina">
             <section id="welcome">
-                <button class="btn btn-primary">ceva</button>
-                <h1>ElectroIT - Bine ati venit!</h1>
+                <div class = "moving-text-container">
+                    <div class = "moving-text">
+                        <h1>ElectroIT - Bine ati venit!</h1>
+                    </div>
+                </div>
+                <% if(!locals.utilizator) { %>
+                    <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+                        <p>
+                            <label>
+                                Username: <input type="text" name="username" id="inp-username" value="" required>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                Parola: <input id="parl" type="password" required  name="parola" value="">
+                            </label>
+                        </p>
+                        <p><input type="submit" value="Logare"></p>
+                    </form>
+                    <p><%- locals.mesajLogin %></p>
+                    <% } else {%>
+                       <%- locals.succesLogin %>
+                    <% }  %>
                 <figure>
                     <picture>
                         <source media="(max-width: 700px)" srcset="resurse/imagini/iph14Phone.png">
                         <source media="(max-width: 1000px)" srcset="resurse/imagini/iph14Tablet.png">
+                        <div class="duotone-image"></div>
                         <img src = "resurse/imagini/iph14Lap.png" alt="Iphone 14" title="Smartphone Apple, Iphone 14">
                     </picture>
                     <figcaption>Iphone 14</figcaption>
@@ -89,7 +117,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="6">Aceste oferte sunt disponibile in limita stocului disponibil!</td>
+                                <td colspan="6">Aceste oferte sunt valabile in limita stocului disponibil!</td>
                             </tr>
                         </tfoot>
                     </table> 
@@ -100,8 +128,17 @@
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis officia dolorem architecto animi exercitationem et distinctio recusandae accusantium quisquam odit, totam esse cumque sint cupiditate inventore natus maxime tempore autem.</p>
             </section>
             <section id="anunturi">
-                <h1>Anunturi</h1>
+                <div id = "cont">
+                    <div id = "text">
+                        Info
+                    </div>
+                <div id = "text-reflectat">
+                        Info
+                    </div>
+                </div>
+
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic ea quaerat a aliquam dolore. Sit libero voluptas impedit sed fugiat fuga dicta quae ducimus accusantium explicabo harum odit, expedita sint?</p>
+
             </section>
 
             <section id = "utilizatori">
@@ -110,13 +147,24 @@
             </section>
             <section id = "utilizatori-statistici">
                 <h1>Statistici utilizatori</h1>
-                <p>
-                    ip: <%- locals.ip %>
-                </p>
+                <table id = "transpus">
+                    <thead>
+                        <tr>
+                            <th>Nume</th>
+                            <th>IP:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Popescu</td>
+                            <td><%- locals.ip %></td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
             <section id = "server-site">
                 <h1>Informatii site</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut distinctio esse repellat explicabo dignissimos vel ratione architecto possimus. Nulla odio, odit facere illo ab quas explicabo fuga quod quaerat laboriosam?</p>
+                <p class = "col">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut distinctio esse repellat explicabo dignissimos vel ratione architecto possimus. Nulla odio, odit facere illo ab quas explicabo fuga quod quaerat laboriosam?</p>
             </section>
             <div id="index-intrebari">
                 <h2>Întrebări frecvente</h2>
@@ -152,32 +200,10 @@
             </div>
         </div>
     </main>
-     <section>
-        <div id="grid-galerie">
-            <% for (let imag of locals.imagini) { 
-                
-                d= new Date();
 
-                var v_luni=["ianuarie", "februarie", "martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"];
-                if (imag.luni && imag.luni.includes(v_luni[d.getMonth()])) {
-
-                %>
-               
-                    <figure>
-                        <picture>
-                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
-                            <img src="<%- imag.fisier %>" alt="imagine">
-                        </picture>
-                        <figcaption><%- imag.descriere %></figcaption>
-                    </figure>
-        
-        
-                <% }  %>
-            <% }  %>
-        </div>
-    </section> 
-    <div class="watermark">
-    </div>
+    <%- include("../fragmente/galerie.ejs") %>
+    <div class="watermark"></div>
+    <hr class = "hr linie">
     <%- include("../fragmente/footer.ejs") %>
     </body>
 </html>

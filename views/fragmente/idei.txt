@@ -1,0 +1,17 @@
+proprietatile cu # sunt private
+fara # sunt publice
+protected nu exista in js
+
+    static #instanta=null;    --------> proprietati private ale clasei
+    static #initializat=false;
+
+singleton - 0 sau 1 instanta
+
+a.join("or")
+a = [["col = 17", "nume = 'Ion'"] -> and     ,(or)     ["prenume = 'geo'", "a = 10"] ->and]
+
+conditieWhere=`where ${conditiiAnd.join(" and ")}`; - leaga conditii AND
+    col = 17 AND nume = "Ion
+
+
+hdxcyhghcpsdwzef

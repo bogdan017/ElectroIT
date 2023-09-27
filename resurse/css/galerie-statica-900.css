@@ -1,0 +1,11 @@
+@media screen and (max-width:1000px){
+    #grid-galerie {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .spatiu {
+        display: block;
+        height: 50%;
+        width: 50%;
+    }
+}

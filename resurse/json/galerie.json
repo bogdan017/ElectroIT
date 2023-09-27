@@ -1,39 +1,53 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
-	"imagini": [
-		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie", "aprilie"]
-		},
-		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-			
-		},
-		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie", "aprilie"]
-		},
-		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			
-			"luni":["noiembrie", "aprilie"]
-		},
-		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
-		},
-		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
-		},
-		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
-		}
-	]
+    "cale_galerie":"resurse/imagini/galerie",
+    "imagini": [
+        {
+            "fisier":"iphone11.jpg",
+            "descriere":"Iphone 11",
+            "nume":"Iphone 11",
+            "timp":"dimineata"
+        },
+        {
+            "fisier":"samsungs23.jpg",
+            "descriere":"Samsung Galaxy S23",
+            "nume":"Samsung Galaxy S23",
+            "timp":"seara"
+            
+        },
+        {
+            "fisier":"motorolaedge30.jpg",
+            "descriere":"Motorola Edge 30",
+            "nume":"Motorola Edge 30",
+            "timp":"seara"
+        },
+        {
+            "fisier":"sonyxperia1.jpg",
+            "descriere":"Sony Xperia 1 IV",
+            "nume":"Sony Xperia 1 IV",
+            "timp":"seara"
+        },
+        {
+            "fisier":"iphone14.jpg",
+            "descriere":"Iphone 14",
+            "nume":"Iphone 14",
+            "timp":"seara"
+
+        },
+        {
+            "fisier":"samsungs22.jpg",
+            "descriere":"Samsung Galaxy S22",
+            "nume":"Samsung Galaxy S22",
+            "timp": "seara"
+
+        },
+        {
+            "fisier":"iphone13.jpg",
+            "descriere":"Iphone 13",
+            "nume":"Iphone 13",
+            "timp": "seara",
+			"licenta": "cc by",
+			"autor": "Alex Tinca"
+
+        }
+    ]
 }
